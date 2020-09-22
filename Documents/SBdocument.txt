@@ -1,0 +1,86 @@
+MQTT topics structure for get  
+ "DeviceId/Topic/Get"
+
+MQTT topics structure for set  
+ "DeviceId/Topic/Set" 
+
+Relay topic
+SB01CC50E3DB460C/relay/Get response 0 if off and 1 is on  
+SB01CC50E3DB460C/relay/Set send 1 to on and 0 to off
+
+RTC topic 
+SB01CC50E3DB460C/rtc/Get  response time formate HH:MM:SS DD-MM-YY
+SB01CC50E3DB460C/rtc/Set  send 1 to set value
+
+Alarm topic get response AABBCCDDEEFFGGHH
+    AA: 01 active 00 inactive
+    BB: Start hour 
+    CC: Start minute
+    DD: Start second
+    EE: End hour
+    FF: End minute
+    GG: End second
+    HH: daysofweek 0 none bitwise sunday to saturday b00000001 sunday b01111111 all day
+  
+
+SB01CC50E3DB460C/alarm/0/Get
+SB01CC50E3DB460C/alarm/1/Get
+SB01CC50E3DB460C/alarm/2/Get
+SB01CC50E3DB460C/alarm/3/Get
+SB01CC50E3DB460C/alarm/4/Get
+SB01CC50E3DB460C/alarm/5/Get
+SB01CC50E3DB460C/alarm/6/Get
+SB01CC50E3DB460C/alarm/7/Get
+SB01CC50E3DB460C/alarm/8/Get
+SB01CC50E3DB460C/alarm/9/Get
+SB01CC50E3DB460C/alarm/10/Get
+SB01CC50E3DB460C/alarm/11/Get
+SB01CC50E3DB460C/alarm/12/Get
+SB01CC50E3DB460C/alarm/13/Get
+SB01CC50E3DB460C/alarm/14/Get
+SB01CC50E3DB460C/alarm/15/Get
+
+same as alarm get 
+SB01CC50E3DB460C/alarm/0/Set
+SB01CC50E3DB460C/alarm/1/Set
+SB01CC50E3DB460C/alarm/2/Set
+SB01CC50E3DB460C/alarm/3/Set
+SB01CC50E3DB460C/alarm/4/Set
+SB01CC50E3DB460C/alarm/5/Set
+SB01CC50E3DB460C/alarm/6/Set
+SB01CC50E3DB460C/alarm/7/Set
+SB01CC50E3DB460C/alarm/8/Set
+SB01CC50E3DB460C/alarm/9/Set
+SB01CC50E3DB460C/alarm/10/Set
+SB01CC50E3DB460C/alarm/11/Set
+SB01CC50E3DB460C/alarm/12/Set
+SB01CC50E3DB460C/alarm/13/Set
+SB01CC50E3DB460C/alarm/14/Set
+SB01CC50E3DB460C/alarm/15/Set
+SB01CC50E3DB460C/tc/Get
+SB01CC50E3DB460C/tc/Set
+
+Onetime time config 
+SB01CC50E3DB460C/alarm/OT/Get
+SB01CC50E3DB460C/alarm/OT/Set
+
+
+Reading dashboard data
+    http://192.168.1.7/switchbinaryupdate
+response:
+    {"rssi":66,"ledg":0,"ledy":1,"alexaS":1,"mqttS":1,"relayS":"Relay Off","MAC":"CC:50:E3:DB:46:0C","time":"16:25:07 05-06-20","S0":"14:49:00","E0":"14:52:07","S1":"00:00:00","E1":"00:00:00","S2":"00:00:00","E2":"00:00:00","S3":"00:00:00","E3":"00:00:00","S4":"00:00:00","E4":"00:00:00","S5":"00:00:00","E5":"00:00:00","S6":"00:00:00","E6":"00:00:00","S7":"00:00:00","E7":"00:00:00","S8":"00:00:00","E8":"00:00:00","S9":"00:00:00","E9":"00:00:00","S10":"00:00:00","E10":"00:00:00","S11":"00:00:00","E11":"00:00:00","S12":"00:00:00","E12":"00:00:00","S13":"00:00:00","E13":"00:00:00","S14":"00:00:00","E14":"00:00:00","S15":"00:00:00","E15":"00:00:00","A0":"1","A1":"0","A2":"0","A3":"0","A4":"0","A5":"0","A6":"0","A7":"0","A8":"0","A9":"0","A10":"0","A11":"0","A12":"0","A13":"0","A14":"0","A15":"0","TC":"1","OS":"00:00:00","OE":"00:00:00","OA":"1"}
+
+    rssi   : signal strength
+    alexaS : 1 connected 0 not connected 
+    mqttS  : 1 connected 0 not connected 
+    relayS : 1 on 0 off 
+    S0     : Starttime 0 hour:mint:sec 
+    E0     : Endtime   0 hour:mint:sec
+    A0     : Active    0 1 active 0 inactive
+    TC     : timeconfig 1 enable 0 disable
+    OS     : onetime start time hour:mint:sec 
+    OE     : onetime end time hour:mint:sec 
+    OA     : onetime Active 1 active 0 inactive
+
+
+ 

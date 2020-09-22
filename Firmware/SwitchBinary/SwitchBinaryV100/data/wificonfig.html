@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>WifiConfig</title> 
+	<script src="/jquery.min.js"></script>
+	<link rel="stylesheet" href="/style.css">
+	<link href="\favicon.ico" rel="shortcut icon" type="images" />
+	<style> 
+    	.header{
+            border-bottom: outset;
+            border-bottom-color: grey;
+            width: 100%;
+            margin-bottom: 1%;
+            
+        }
+        .titleHeading{
+            margin-left: 30%;
+            margin-bottom: 10%;
+            font-size: 60px;
+            font-weight: bold;
+            color: #c5719c;
+        }
+        .firstRow{
+        	margin-top: 5%;
+        }
+        #firstColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #firstColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 20px;
+			color: #d40b73;
+		}
+		#firstColumn input{
+			margin-left: 30%;
+			width: 50%;
+			position: relative;
+
+		}
+		#secondColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #secondColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 19px;
+			color: #d40b73;
+		}
+		#secondColumn input{
+			margin-left: 25%;
+			width: 50%;
+			position: relative;
+
+		}
+		#secondColumn button{
+			
+			width: 18%;
+		}
+		#add_Config_Enable{
+			margin-left: 25%;
+		}
+		#addwifistatic_number{
+			margin-left: 3%;
+		}
+		#addStaticIP label{
+			font-size: 25px;
+			color: #111717;
+			margin-left: 12%;
+		}
+		#addWifi label{
+			font-size: 25px;
+			color: #111717;
+			margin-left: 12%;
+		}
+
+		@media only screen and (max-width: 800px){
+	        .header{
+	            margin-bottom: 3%;
+	        }
+	        .titleHeading {
+	            width: 20%;
+	            margin-left: 14%;
+	            font-size: 30px;
+	        }
+	        #firstColumn,#secondColumn{
+	        	float: left;
+	        	width: 80%;
+	        }
+	        #firstColumn label{
+	        	font-size: 12px;
+	        }
+        	#secondColumn label{
+        		font-size: 12px;
+
+        	}
+        	#secondColumn input,#firstColumn input{
+        		width: 40%;
+        	}
+        	#secondColumn button{
+        		width: 25%;
+        	}
+        	#addStaticIP label{
+				font-size: 20px;
+				
+				margin-left: 18%;
+			}
+			#addWifi label{
+				font-size: 20px;
+				
+				margin-left: 18%;
+			}
+	    }
+	</style>
+
+	<body>
+		<div class="main">
+			<div class="header">
+				<span  class="titleHeading"> Wi-Fi Configuration </span>
+			</div>
+
+			<div class="firstRow"> 
+				<div id="firstColumn"><br>
+		        	<div id="addWifi"><label >ADD Wifi</label></div><br><br><br>
+					<label>Wifi:</label>
+						<input type='text' name='addwifi_username' id='addwifi_username' size=15 autofocus> 
+						<select id='addwifi_number'>
+							<option value="0">One</option>
+							<option value="1">Two</option>
+							<option value="2">Three</option>
+							<option value="3">Four</option>
+						</select><br><br>
+				
+					<label>Password: </label>
+						<input type='text' name='addwifi_password' id='addwifi_password' size=15 autofocus>
+						<button id="AddWifi_button">ADD</button><br><br>
+				
+					<label>HostName:</label>
+						<input type='text' name='wifi_hostname' id='wifi_hostname' size=10 autofocus><br><br>
+					<label>HostPassword:</label>
+						<input type='text' name='wifi_hostpassword' id='wifi_hostpassword' size=10 autofocus>
+						<button id="Wifi_hostname">HostSave</button><br><br>
+				</div>
+
+				<div id="secondColumn"><br>	
+					<div id="addStaticIP"><label> Add static IPs</label></div><br><br>
+						<select id='addwifistatic_number'>
+							<option value="0">One</option>
+							<option value="1">Two</option>
+							<option value="2">Three</option>
+							<option value="3">Four</option>
+						</select><br><br>
+
+					<label>IP Addr: </label>
+						<input type="text" name='add_wifi_ipaddr' id='add_wifi_ipaddr' minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" autofocus>
+						<button id="add_Wifi_ipaddr">IPAddr</button><br><br>
+					
+					
+					<label>Gateway: </label>
+						<input type="text" name='add_wifi_gateway' id='add_wifi_gateway' minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" autofocus>
+						<button id="add_Wifi_gateway">Gateway</button><br><br>
+					
+					
+					<label>Subnet: </label>
+						<input type="text" name='add_wifi_subnet' id='add_wifi_subnet' minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" autofocus>
+						<button id="add_Wifi_subnet">Subnet</button><br><br>
+					
+					<label>DNS IP:  </label>
+						<input type="text" name='add_wifi_dnsip' id='add_wifi_dnsip' minlength="7" maxlength="15" size="15" pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$" autofocus>
+						<button id="add_Wifi_dnsip">DNSIP</button><br><br>
+					
+					
+					<label>WifiConfig: </label>
+						<button id="add_Config_Enable">Enable</button> 
+						<button id="add_Config_Disable">Disable</button><br><br>
+				</div>	
+					
+				<div id="dvTable"></div>
+			</div>
+		</div>
+		
+		<script>
+			setInterval(function() {
+				GetValues();
+			}, 5000);
+			
+			var hostname;
+			var IPAddr;
+			var Gateway;
+			var Subnet;
+			var DNSIP;
+			var StaticConfig;
+			var Devicetype1;
+			var Devicetype1Value;
+			var sDataString;
+			var sOutString ;
+			var hostpassword;
+
+			$('#Wifi_hostname').click(function(e){
+				e.preventDefault();
+				hostname = $('#wifi_hostname').val();
+				hostpassword = $('#wifi_hostpassword').val();
+				if(hostname.length > 20){
+					hostname = jQuery.trim(hostname).substring(0, 20);
+				}
+				if(hostpassword.length > 20){
+					hostpassword = jQuery.trim(hostpassword).substring(0, 20);
+				}
+
+				$.get('/addwifihostname?hostname=' + hostname +'&hostpassword='+ hostpassword, function(data){
+					alert(data);
+				});
+			});
+			
+			
+			$('#AddWifi_button').click(function(e){
+				e.preventDefault();
+				username = $('#addwifi_username').val();
+				password = $('#addwifi_password').val();
+				wifinumber = document.getElementById("addwifi_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+
+				$.get('/addwifi?username=' + username + '&password=' + password + '&number=' +wifinumbervalue, function(data){
+					alert(data);
+				});
+
+				
+			});
+
+			$('#add_Config_Disable').click(function(e){
+				e.preventDefault();
+				IPAddr = "A.B.C.D";
+				Gateway = "A.B.C.D";
+				Subnet = "A.B.C.D";
+				DNSIP = "A.B.C.D";
+				StaticConfig = "0";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+
+				$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+					alert(data);
+				});
+			});
+			
+			$('#add_Config_Enable').click(function(e){
+				e.preventDefault();
+				IPAddr = "A.B.C.D";
+				Gateway = "A.B.C.D";
+				Subnet = "A.B.C.D";
+				DNSIP = "A.B.C.D";
+				StaticConfig = "1";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+				$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+					alert(data);
+				});
+			});
+			
+			$('#add_Wifi_ipaddr').click(function(e){
+				e.preventDefault();
+				IPAddr = $('#add_wifi_ipaddr').val();
+				Gateway = "A.B.C.D";
+				Subnet = "A.B.C.D";
+				DNSIP = "A.B.C.D";
+				StaticConfig = "2";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+				if(ValidateIPaddress(IPAddr)){
+					$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+						alert(data);
+					});
+					
+				}else{
+					alert("You have entered an invalid IP address!");
+				}
+				
+			});
+			
+			$('#add_Wifi_gateway').click(function(e){
+				e.preventDefault();
+				Gateway = $('#add_wifi_gateway').val();
+				IPAddr = "A.B.C.D";
+				Subnet = "A.B.C.D";
+				DNSIP = "A.B.C.D";
+				StaticConfig = "2";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+				if(ValidateIPaddress(Gateway)){
+					$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+						alert(data);
+					});
+				}else{
+					alert("You have entered an invalid IP address!");
+				}
+			});
+			
+			$('#add_Wifi_subnet').click(function(e){
+				e.preventDefault();
+				Subnet = $('#add_wifi_subnet').val();
+				Gateway = "A.B.C.D";
+				IPAddr = "A.B.C.D";
+				DNSIP = "A.B.C.D";
+				StaticConfig = "2";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+				if(ValidateIPaddress(Subnet)){
+					$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+						alert(data);
+					});
+				}else{
+					alert("You have entered an invalid IP address!");
+				}
+				
+			});
+			
+			$('#add_Wifi_dnsip').click(function(e){
+				e.preventDefault();
+				DNSIP = $('#add_wifi_dnsip').val();
+				Gateway = "A.B.C.D";
+				IPAddr = "A.B.C.D";
+				Subnet = "A.B.C.D";
+				StaticConfig = "2";
+				wifinumber = document.getElementById("addwifistatic_number");
+				wifinumbervalue = wifinumber.options[wifinumber.selectedIndex].value;
+				if(ValidateIPaddress(DNSIP)){
+					$.get('/addwifiparameter?ipaddr=' + IPAddr + '&gateway=' + Gateway + '&subnet=' + Subnet + '&dnsip=' + DNSIP + '&staticconfig=' + StaticConfig + '&wifinumber=' + wifinumbervalue, function(data){
+						alert(data);
+					});
+				}else{
+					alert("You have entered an invalid IP address!");
+				}
+				
+			});
+
+			$('#Reset_button').click(function(e){
+				e.preventDefault();
+				if (confirm('Are you sure you reset hardware?')) {
+					sDataString = '/reset?value=';
+					sOutString = sDataString.concat('1');
+					$.get(sOutString, function(data){
+					alert(data);
+					location.reload();
+					});
+				}
+			});
+
+			var json_data = 0;
+			var tableentry = new Array();
+			
+			function ValidateIPaddress(inputText){
+				var ipformat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
+				if(inputText.match(ipformat)){
+					return true;
+				}else{
+					return false;
+				}
+			}
+			
+			
+
+			function GetValues() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						json_data = JSON.parse(this.responseText);
+						tableentry.push(["Name", "Value"]);
+						var myList = [];
+						for(var i in json_data){
+							myList.push([i, json_data [i]]);
+						}
+						console.log(json_data);
+						//console.log(myList);
+						GenerateTable(myList);
+						//document.getElementById("currentwifi").textContent=json_data['Wifi'];
+						//document.getElementById("rssi").textContent=json_data['rssi'];
+					}
+				};
+				xhttp.open("GET", "/getwifivalues", false);
+				xhttp.send();
+			}
+			
+
+			function GenerateTable( myList) {
+				//Build an array containing Customer records.
+				var customers = new Array();
+				customers.push(["Name", "value"]);
+				for(var i in myList){
+					customers.push(myList[i]);
+				}
+				
+				//customers.push(myList[2]);
+				//customers.push(myList[3]);
+				
+				//Create a HTML Table element.
+				var table = document.createElement("TABLE");
+				table.border = "1";
+				
+				//Get the count of columns.
+				var columnCount = customers[0].length;
+				
+				//Add the header row.
+				var row = table.insertRow(-1);
+				for (var i = 0; i < columnCount; i++) {
+					var headerCell = document.createElement("TH");
+					headerCell.innerHTML = customers[0][i];
+					row.appendChild(headerCell);
+				}
+				
+				//Add the data rows.
+				for (var i = 1; i < customers.length; i++) {
+					row = table.insertRow(-1);
+					for (var j = 0; j < columnCount; j++) {
+						var cell = row.insertCell(-1);
+						cell.innerHTML = customers[i][j];
+					}
+				}
+				
+				var dvTable = document.getElementById("dvTable");
+				dvTable.innerHTML = "";
+				dvTable.appendChild(table);
+			}
+		</script>
+		
+	</body>
+	</html>

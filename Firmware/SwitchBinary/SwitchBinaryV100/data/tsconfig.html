@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Thingspeak</title> 
+	<script src="/jquery.min.js"></script>
+	<link rel="stylesheet" href="/style.css">
+	<link href="\favicon.ico" rel="shortcut icon" type="images" />
+	<style> 
+    	.header{
+            border-bottom: outset;
+            border-bottom-color: grey;
+            width: 100%;
+            margin-bottom: 1%;
+            
+        }
+        .titleHeading{
+            margin-left: 30%;
+            margin-bottom: 10%;
+            font-size: 60px;
+            font-weight: bold;
+            color: #c5719c;
+        }
+        .firstRow{
+        	margin-top: 5%;
+        }
+        #firstColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #firstColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 20px;
+			color: #d40b73;
+		}
+		#firstColumn input{
+			margin-left: 30%;
+			width: 50%;
+			position: relative;
+
+		}
+		#secondColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #secondColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 19px;
+			color: #d40b73;
+		}
+		#secondColumn input{
+			margin-left: 25%;
+			width: 50%;
+			position: relative;
+
+		}
+		#secondColumn button{
+			
+			width: 18%;
+		}
+		#add_Config_Enable{
+			margin-left: 25%;
+		}
+		#addwifistatic_number{
+			margin-left: 3%;
+		}
+		#addStaticIP label{
+			font-size: 25px;
+			color: #111717;
+			margin-left: 12%;
+		}
+		#addWifi label{
+			font-size: 25px;
+			color: #111717;
+			margin-left: 12%;
+		}
+
+		@media only screen and (max-width: 800px){
+	        .header{
+	            margin-bottom: 3%;
+	        }
+	        .titleHeading {
+	            width: 20%;
+	            margin-left: 14%;
+	            font-size: 30px;
+	        }
+	        #firstColumn,#secondColumn{
+	        	float: left;
+	        	width: 80%;
+	        }
+	        #firstColumn label{
+	        	font-size: 12px;
+	        }
+        	#secondColumn label{
+        		font-size: 12px;
+
+        	}
+        	#secondColumn input,#firstColumn input{
+        		width: 40%;
+        	}
+        	#secondColumn button{
+        		width: 25%;
+        	}
+        	#addStaticIP label{
+				font-size: 20px;
+				
+				margin-left: 18%;
+			}
+			#addWifi label{
+				font-size: 20px;
+				
+				margin-left: 18%;
+			}
+	    }
+	</style>
+
+	<body>
+		<div class="main">
+			<div class="header">
+				<span  class="titleHeading">Thingspeak config</span>
+			</div>
+
+			<div class="firstRow"> 
+				<div id="firstColumn"><br>
+					<button onclick="window.location.href = '/index.html';" class="button">HOME</button>
+		        	<div id="addts"><label >Parameters</label></div><br><br><br>
+					<label>Channel API:</label>
+						<input type='text' name='tschannelapi' id='tschannelapi' size=25 autofocus> 
+                        <br><br>
+                        <label>Enable:
+                        <select id='tsenable'>
+                            <option value="2">None</option>
+							<option value="0">Disable</option>
+							<option value="1">Enable</option>
+                        </select></label>
+                        <br><br>
+                        <button id="Addts_button">Set</button>  	
+                </div>
+                
+				<div id="dvTable"></div>
+			</div>
+		</div>
+		
+		<script>
+			setInterval(function() {
+				GetValues();
+			}, 5000);
+			
+			var channelapi;
+            var tsenable;			
+			
+			$('#Addts_button').click(function(e){
+				e.preventDefault();
+				channelapi = $('#tschannelapi').val();
+                var tsenablenumber;
+                tsenablenumber = document.getElementById("tsenable");
+				tsenable = tsenablenumber.options[tsenablenumber.selectedIndex].value;
+
+                if (channelapi == ""){
+                    channelapi = "NOAPI";
+                }
+
+				$.get('/addtsparameter?channelapi=' + channelapi + '&enable=' + tsenable, function(data){
+					alert(data);
+				});
+				
+			});
+
+			
+			var json_data = 0;
+			var tableentry = new Array();
+			
+			function GetValues() {
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						json_data = JSON.parse(this.responseText);
+						tableentry.push(["Name", "Value"]);
+						var myList = [];
+						for(var i in json_data){
+							myList.push([i, json_data [i]]);
+						}
+						console.log(json_data);
+						//console.log(myList);
+						GenerateTable(myList);
+						//document.getElementById("currentwifi").textContent=json_data['Wifi'];
+						//document.getElementById("rssi").textContent=json_data['rssi'];
+					}
+				};
+				xhttp.open("GET", "/gettsvalues", false);
+				xhttp.send();
+			}
+		
+			function GenerateTable( myList) {
+				//Build an array containing Customer records.
+				var customers = new Array();
+				customers.push(["Name", "value"]);
+				for(var i in myList){
+					customers.push(myList[i]);
+				}
+				
+				//customers.push(myList[2]);
+				//customers.push(myList[3]);
+				
+				//Create a HTML Table element.
+				var table = document.createElement("TABLE");
+				table.border = "1";
+				
+				//Get the count of columns.
+				var columnCount = customers[0].length;
+				
+				//Add the header row.
+				var row = table.insertRow(-1);
+				for (var i = 0; i < columnCount; i++) {
+					var headerCell = document.createElement("TH");
+					headerCell.innerHTML = customers[0][i];
+					row.appendChild(headerCell);
+				}
+				
+				//Add the data rows.
+				for (var i = 1; i < customers.length; i++) {
+					row = table.insertRow(-1);
+					for (var j = 0; j < columnCount; j++) {
+						var cell = row.insertCell(-1);
+						cell.innerHTML = customers[i][j];
+					}
+				}
+				
+				var dvTable = document.getElementById("dvTable");
+				dvTable.innerHTML = "";
+				dvTable.appendChild(table);
+			}
+		</script>
+		
+	</body>
+	</html>

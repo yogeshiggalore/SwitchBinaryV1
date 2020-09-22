@@ -1,0 +1,119 @@
+/*Downloaded from https://www.codeseek.co/paulmerupu91/wifi-signal-css-illustration-LevMgR */
+*{
+  box-sizing:border-box;
+  //border:1px solid yellow;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body{
+  background:linear-gradient(5deg, #66c5dd, #b6bfef);
+  height:100vh;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.container{
+  top:50%;
+  left:50%;
+  position:absolute;
+  -webkit-transform:translate(-50%, -50%);
+          transform:translate(-50%, -50%);
+  width:100%;
+  
+}
+
+.signal{
+  //background-color:green;
+  width:70px;
+  height:70px;
+  margin:auto;
+  //margin-top:50px;
+  position:relative;
+  overflow:hidden;
+  //transform-origin:50% 50%;
+  -webkit-transform:rotate(45deg) scale(2);
+          transform:rotate(45deg) scale(2);
+  margin-bottom:100px;
+}
+
+.curveOne{
+  border-radius:50%;
+  border:5px solid #fff;
+  position:absolute;
+  width:200%;
+  height:200%;
+}
+
+.curveTwo{
+  border-radius:50%;
+  border:5px solid #fff;
+  position:absolute;
+  right:0%;
+  bottom:0;
+  -webkit-transform:translate(50%,50%);
+          transform:translate(50%,50%);
+  width:150%;
+  height:150%;
+}
+
+.curveThree{
+  border-radius:50%;
+  border:5px solid #fff;
+  position:absolute;
+  right:0%;
+  width:100%;
+  -webkit-transform:translate(50%,50%);
+          transform:translate(50%,50%);
+  height:100%;
+}
+
+.curveFour{
+  border-radius:50%;
+  border:5px solid #fff;
+  position:absolute;
+  bottom:0;
+  background-color:#fff;
+  height:50%;
+  right:0%;
+  width:50%;
+  -webkit-transform:translate(50%,50%);
+          transform:translate(50%,50%)
+}
+
+.box{
+  
+  text-align:center;
+
+}
+
+.box span{
+  display:block;
+  margin:14px;
+  font-size:11px;
+  color:#fff;
+}
+
+.clickHere{
+  display:inline-block;
+  text-align:center;
+  color:#cecece;
+  background:#666;
+  padding:10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.13);
+  cursor:default;
+  transition:all .3s;
+  //float:left;
+}
+
+.clickHere:hover{
+  background-color:#cecece;
+  color:#888;
+}
+
+.click{
+  background:#efde7f;
+  color:#666;
+}

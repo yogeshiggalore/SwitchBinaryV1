@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>MQTT Config</title> 
+	<script src="\jquery.min.js"></script>
+	<link rel="stylesheet" href="\style.css">
+	<link href="\favicon.ico" rel="shortcut icon" type="images" />
+	<style> 
+    	.header{
+            border-bottom: outset;
+            border-bottom-color: grey;
+            width: 100%;
+            margin-bottom: 1%;
+            
+        }
+        .titleHeading{
+            margin-left: 30%;
+            margin-bottom: 10%;
+            font-size: 60px;
+            font-weight: bold;
+            color: #c5719c;
+        }
+        .firstRow{
+        	margin-top: 5%;
+        }
+        #firstColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #firstColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 20px;
+			color: #d40b73;
+		}
+		#firstColumn input{
+			margin-left: 30%;
+			width: 50%;
+			position: relative;
+
+		}
+		#mqtt_qos{
+			margin-left: 30%;
+		}
+		#secondColumn{
+            margin-left: 10%;
+        	width: 35%;
+        	margin-top: 1%;
+        	border: 2px solid rgba(212, 212, 212, 1);
+        	box-shadow:0px 0px 16px rgba(0,0,0,0.28);
+        	background-color: #c4e0e2;
+        	float: left;
+        }
+        #secondColumn label{
+		    margin-left: 1%;
+			position: absolute;
+			font-weight: bold;
+			font-size: 19px;
+			color: #d40b73;
+		}
+		#secondColumn input{
+			margin-left: 35%;
+			width: 50%;
+			position: relative;
+
+		}
+		#secondColumn button{
+			margin-left: 35%;
+			width: 25%;
+		}
+
+		@media only screen and (max-width: 800px){
+	        .header{
+	            margin-bottom: 3%;
+	        }
+	        .titleHeading {
+	            width: 20%;
+	            margin-left: 14%;
+	            font-size: 30px;
+	        }
+	        #firstColumn,#secondColumn{
+	        	float: left;
+	        	width: 75%;
+	        }
+	        #firstColumn label{
+	        	font-size: 12px;
+	        }
+        	#secondColumn label{
+        		font-size: 12px;
+        	}
+	    }
+
+    </style>
+	<body>
+		<div class="main">
+			<div class="header">
+				<span  class="titleHeading"> MQTT Configuration </span>
+			</div>
+
+			<div class="firstRow"> 
+				<div id="firstColumn"><br><br>
+					<label>Server:</label>
+						<input type='text' name='Mqtt_server' id='mqtt_server' size=15 autofocus><br><br>
+					<label>Port:</label>
+						<input type='text' name='Mqtt_port' id='mqtt_port' size=15 autofocus><br><br>
+					<label>ClientID:</label>
+						<input type='text' name='Mqtt_clientid' id='mqtt_clientid' size=55 autofocus><br><br>
+					<label>Username:</label>
+						<input type='text' name='Mqtt_username' id='mqtt_username' size=55 autofocus><br><br>
+					<label>Password:</label>
+						<input type='text' name='Mqtt_password' id='mqtt_password' size=55 autofocus><br><br>
+					<label>KeepAlive:</label>
+						<input type='text' name='Mqtt_keepalive' id='mqtt_keepalive' size=25 autofocus><br><br>
+					<label>QOS:</label>
+						<select id='mqtt_qos'>
+							<option value="4">None</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+						</select><br><br>
+					
+				</div>
+				<div id="secondColumn"><br><br>
+					<label>RelayTopic:</label>
+						<input type='text' name='Mqtt_relaytopic' id='mqtt_relaytopic' size=55 autofocus><br><br>
+					<label>RTCTopic:</label>
+						<input type='text' name='Mqtt_rtctopic' id='mqtt_rtctopic' size=55 autofocus><br><br>
+					<label>AlarmTopic:</label>
+						<input type='text' name='Mqtt_alarmtopic' id='mqtt_alarmtopic' size=55 autofocus><br><br>
+					<label>TimeconfigTopic:</label>
+						<input type='text' name='Mqtt_timeconfigtopic' id='mqtt_timeconfigtopic' size=55 autofocus><br><br>
+					
+					<button id="Mqtt_button">Save</button><br><br>
+				</div>
+			</div>
+	
+		<div id="dvTable"></div>
+
+		<script>
+			window.onload = function() {
+				GetValues();
+			};
+			/*setInterval(function() {
+				GetValues();
+			}, 15000);*/
+
+			var sDataString;
+			var sOutString;
+			
+			var sMqttServer;
+			var sMqttPort;
+			var sMqttClientId;
+			var sMqttUsername;
+			var sMqttPassword;
+			var sMqttRelayTopic;
+			var sMqttRTCTopic;
+			var sMqttAlarmTopic;
+			var sMqttTCTopic;
+			var sMqttKeepalive;
+			var Qostype = document.getElementById("mqtt_qos");
+			var sQoS = Qostype.options[Qostype.selectedIndex].value;
+
+			$('#Mqtt_button').click(function(e){
+				e.preventDefault();
+				console.log("mqtt");
+				sMqttServer=$('#mqtt_server').val();
+				sMqttPort=$('#mqtt_port').val();
+				sMqttClientId=$('#mqtt_clientid').val();
+				sMqttUsername=$('#mqtt_username').val();
+				sMqttPassword=$('#mqtt_password').val();
+				sMqttRTCTopic=$('#mqtt_rtctopic').val();
+				sMqttAlarmTopic=$('#mqtt_alarmtopic').val();
+				sMqttTCTopic=$('#mqtt_timeconfigtopic').val();
+				sMqttRelayTopic=$('#mqtt_relaytopic').val();
+				sMqttKeepalive=$('#mqtt_keepalive').val();
+				Qostype = document.getElementById("mqtt_qos");
+				sQoS = Qostype.options[Qostype.selectedIndex].value;
+				console.log("mqtt");
+				if (confirm('Are you sure you save this?')) {
+					sDataString = '/addmqtt?sMqttServer=';
+					sOutString = sDataString.concat( sMqttServer , '&sMqttPort=' , sMqttPort , '&sMqttClientId=' , sMqttClientId , '&sMqttUsername=' , sMqttUsername , '&sMqttPassword=' , sMqttPassword,'&sMqttRTCTopic=' , sMqttRTCTopic,'&sMqttAlarmTopic=' , sMqttAlarmTopic,'&sMqttTCTopic=' , sMqttTCTopic,'&sMqttRelayTopic=' , sMqttRelayTopic,'&sQos=' , sQoS,'&sMqttKeepalive=',sMqttKeepalive);
+					console.log(sOutString);
+					$.get(sOutString, function(data){
+					alert(data);
+					location.reload();
+					});
+				}
+			});
+
+			var json_data = 0;
+			var tableentry = new Array();
+
+			function GetValues() {
+				//console.log("started");
+				var xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						json_data = JSON.parse(this.responseText);
+						tableentry.push(["Name", "Value"]);
+						var myList = [];
+						for(var i in json_data){
+							myList.push([i, json_data [i]]);
+						}
+						console.log(json_data);
+						GenerateTable(myList);
+					}
+				};
+				xhttp.open("GET", "/getmqttvalues", false);
+				xhttp.send();
+			}
+			
+			function GenerateTable( myList) {
+				//Build an array containing Customer records.
+				var customers = new Array();
+				customers.push(["Name", "value"]);
+				for(var i in myList){
+					customers.push(myList[i]);
+				}
+				
+				//customers.push(myList[2]);
+				//customers.push(myList[3]);
+				
+				//Create a HTML Table element.
+				var table = document.createElement("TABLE");
+				table.border = "1";
+				
+				//Get the count of columns.
+				var columnCount = customers[0].length;
+				
+				//Add the header row.
+				var row = table.insertRow(-1);
+				for (var i = 0; i < columnCount; i++) {
+					var headerCell = document.createElement("TH");
+					headerCell.innerHTML = customers[0][i];
+					row.appendChild(headerCell);
+				}
+				
+				//Add the data rows.
+				for (var i = 1; i < customers.length; i++) {
+					row = table.insertRow(-1);
+					for (var j = 0; j < columnCount; j++) {
+						var cell = row.insertCell(-1);
+						cell.innerHTML = customers[i][j];
+					}
+				}
+				
+				var dvTable = document.getElementById("dvTable");
+				dvTable.innerHTML = "";
+				dvTable.appendChild(table);
+			}
+
+		</script>
+	</body>
+
+	</html> 
