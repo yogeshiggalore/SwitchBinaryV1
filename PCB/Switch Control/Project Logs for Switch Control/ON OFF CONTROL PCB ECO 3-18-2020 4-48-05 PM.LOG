@@ -1,0 +1,4 @@
+Added Component: Designator=X1(CRYSTAL_32.768_SMD)
+Added Pin To Net: NetName=NetU4_1 Pin=X1-1
+Added Pin To Net: NetName=NetU4_2 Pin=X1-2
+Added Member To Class: ClassName=Water Control Member=Component X1 32.768

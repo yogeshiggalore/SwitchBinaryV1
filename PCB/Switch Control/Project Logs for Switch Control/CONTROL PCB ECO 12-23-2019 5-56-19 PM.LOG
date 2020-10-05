@@ -1,0 +1,12 @@
+Added Component: Designator=D1(BZT55B13GS08)
+Added Component: Designator=JP1(691312510002)
+Added Component: Designator=JP2(691312510002)
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=+5V Pin=D1-2
+Added Pin To Net: NetName=NO_2 Pin=JP1-1
+Added Pin To Net: NetName=COM_2 Pin=JP1-2
+Added Pin To Net: NetName=PHASE Pin=JP2-1
+Added Pin To Net: NetName=NEUTRAL Pin=JP2-2
+Added Member To Class: ClassName=Water Control Member=Component D1 5.8V zener diode
+Added Member To Class: ClassName=Water Control Member=Component JP1 LOAD
+Added Member To Class: ClassName=Water Control Member=Component JP2 LOAD

@@ -1,0 +1,20 @@
+Added Component: Designator=U1(*XCVR_ESP8266-12E/ESP-12E)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "AI-Thinker"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "ESP8266-12E/ESP-12E"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/ESP8266-12E/ESP-12E/AI-Thinker/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=RST Pin=U1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-3
+Added Pin To Net: NetName=RX1 Pin=U1-7
+Added Pin To Net: NetName=+3.3V Pin=U1-8
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=TX1 Pin=U1-16
+Added Pin To Net: NetName=NetR3_1 Pin=U1-17
+Added Pin To Net: NetName=DTR Pin=U1-18
+Added Pin To Net: NetName=RELAY2 Pin=U1-20
+Added Pin To Net: NetName=RX Pin=U1-21
+Added Pin To Net: NetName=TX Pin=U1-22
+Added Member To Class: ClassName=Water Control Member=Component U1 ESP8266-12E/ESP-12E

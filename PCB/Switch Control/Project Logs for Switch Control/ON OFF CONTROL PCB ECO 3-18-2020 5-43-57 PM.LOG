@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=RELAY Pin=U1-11
+Change Component Comment : Designator=R6 Old Comment=4.7K New Comment=1K
+Added Component: Designator=PWR1(Type 3mm)
+Added Component: Designator=R11(RESC0805)
+Added Component: Designator=R12(RESC0805)
+Added Component: Designator=R13(RESC0805)
+Added Component: Designator=RX1(Type 3mm)
+Added Component: Designator=TX1(Type 3mm)
+Added Pin To Net: NetName=GND Pin=PWR1-1
+Added Pin To Net: NetName=+3.3V Pin=R13-2
+Added Pin To Net: NetName=GND Pin=RX1-1
+Added Pin To Net: NetName=GND Pin=TX1-1
+Added Pin To Net: NetName=RELAY Pin=U1-5
+Change Net Name : Old Net Name=TX1 New Net Name=NetR5_2
+Added Pin To Net: NetName=LEDRX Pin=R11-2
+Added Pin To Net: NetName=LEDRX Pin=U1-7
+Added Net: Name=LEDRX
+Added Pin To Net: NetName=LEDTX Pin=R12-2
+Added Pin To Net: NetName=LEDTX Pin=U1-6
+Added Net: Name=LEDTX
+Added Pin To Net: NetName=NetPWR1_1 Pin=PWR1-2
+Added Pin To Net: NetName=NetPWR1_1 Pin=R13-1
+Added Net: Name=NetPWR1_1
+Added Pin To Net: NetName=NetR11_1 Pin=R11-1
+Added Pin To Net: NetName=NetR11_1 Pin=RX1-2
+Added Net: Name=NetR11_1
+Added Pin To Net: NetName=NetR12_1 Pin=R12-1
+Added Pin To Net: NetName=NetR12_1 Pin=TX1-2
+Added Net: Name=NetR12_1
+Added Member To Class: ClassName=Water Control Member=Component PWR1 LED
+Added Member To Class: ClassName=Water Control Member=Component R11 1K
+Added Member To Class: ClassName=Water Control Member=Component R12 1K
+Added Member To Class: ClassName=Water Control Member=Component R13 1K
+Added Member To Class: ClassName=Water Control Member=Component RX1 LED
+Added Member To Class: ClassName=Water Control Member=Component TX1 LED

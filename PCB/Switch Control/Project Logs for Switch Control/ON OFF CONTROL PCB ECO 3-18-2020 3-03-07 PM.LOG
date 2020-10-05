@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=RELAY Pin=U1-20
+Added Component: Designator=R9(RESC0805)
+Added Component: Designator=R10(RESC0805)
+Added Pin To Net: NetName=NetBT1_1 Pin=BT1-1
+Added Pin To Net: NetName=GND Pin=BT1-2
+Added Pin To Net: NetName=+5V Pin=R9-1
+Added Pin To Net: NetName=+3.3V Pin=R10-1
+Added Pin To Net: NetName=RELAY Pin=U1-11
+Added Pin To Net: NetName=I2C_SDA Pin=U1-19
+Added Pin To Net: NetName=I2C_SCL Pin=U1-20
+Added Pin To Net: NetName=NetC6_2 Pin=C6-2
+Added Pin To Net: NetName=NetC6_2 Pin=R3-1
+Added Pin To Net: NetName=NetC6_2 Pin=R8-1
+Added Pin To Net: NetName=NetC6_2 Pin=R9-2
+Added Pin To Net: NetName=NetC6_2 Pin=R10-2
+Added Pin To Net: NetName=NetC6_2 Pin=U4-8
+Added Net: Name=NetC6_2
+Added Member To Class: ClassName=Water Control Member=Component BT1 BATTERY
+Added Member To Class: ClassName=Water Control Member=Component R9 0
+Added Member To Class: ClassName=Water Control Member=Component R10 0

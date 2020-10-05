@@ -1,0 +1,44 @@
+Removed Pin From Net: NetName=+3.3V Pin=R3-2
+Change Component Footprint: Designator=R3 Old Footprint=RESC0805(2012)_L New Footprint=RESC0805
+Change Component Comment : Designator=R3 Old Comment=2R55 1% 0805(2012) New Comment=4.7K
+Change Managed Component Library Link : Designator=R3 Old VaultGUID=B7D15EC3-160A-466F-A46C-7801FE6295A7 New VaultGUID= Old ItemGUID=09B7E1AD-6AEB-482F-AA62-FD3B3590EE7E New ItemGUID= Old RevisionGUID=E353B579-C3D5-4DBA-B279-E281054E725B New RevisionGUID=
+Change component parameters: Designator = "R3" ("R3"); Footprint = "RESC0805(2012)_L"; UniqueID = "\RENSDXEU" ("\RENSDXEU")
+Added Component: Designator=C6(CAPC0805)
+Added Component: Designator=P1(HDR1X3)
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=R8(RESC0805)
+Added Component: Designator=U4(SOIC8)
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=+3.3V Pin=P1-1
+Added Pin To Net: NetName=GND Pin=P1-3
+Added Pin To Net: NetName=GND Pin=U4-4
+Change Net Name : Old Net Name=RELAY2 New Net Name=RELAY
+Added Pin To Net: NetName=5V Pin=R3-1
+Added Pin To Net: NetName=5V Pin=R8-1
+Added Net: Name=5V
+Added Pin To Net: NetName=CLK_1HZ Pin=U4-7
+Added Net: Name=CLK_1HZ
+Added Pin To Net: NetName=DEBUGTX\ Pin=P1-2
+Added Pin To Net: NetName=DEBUGTX\ Pin=U1-17
+Added Net: Name=DEBUGTX\
+Added Pin To Net: NetName=I2C_SCL Pin=R3-2
+Added Pin To Net: NetName=I2C_SCL Pin=U4-6
+Added Net: Name=I2C_SCL
+Added Pin To Net: NetName=I2C_SDA Pin=R8-2
+Added Pin To Net: NetName=I2C_SDA Pin=U4-5
+Added Net: Name=I2C_SDA
+Added Pin To Net: NetName=NetBT1_1 Pin=U4-3
+Added Net: Name=NetBT1_1
+Added Pin To Net: NetName=NetU4_1 Pin=U4-1
+Added Net: Name=NetU4_1
+Added Pin To Net: NetName=NetU4_2 Pin=U4-2
+Added Net: Name=NetU4_2
+Added Pin To Net: NetName=RTC_VDD Pin=C6-2
+Added Pin To Net: NetName=RTC_VDD Pin=U4-8
+Added Net: Name=RTC_VDD
+Added Member To Class: ClassName=Water Control Member=Component C6 0.1UF
+Added Member To Class: ClassName=Water Control Member=Component P1 Header 3
+Added Member To Class: ClassName=Water Control Member=Component R8 4.7K
+Added Member To Class: ClassName=Water Control Member=Component U4 DS1307

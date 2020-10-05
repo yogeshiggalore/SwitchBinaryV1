@@ -1,0 +1,100 @@
+Change Component Footprint: Designator=K1 Old Footprint=0476618 New Footprint=R53G112DF1S
+Change Component Footprint: Designator=JP1 Old Footprint=691312510002 New Footprint=10 mm pitch
+Change Component Footprint: Designator=JP2 Old Footprint=691312510002 New Footprint=10 mm pitch
+Change Component Comment : Designator=K1 Old Comment=0476618 New Comment=Relays General Purpose Non Latching 12VDC SPDT 30A 250VAC Through Hole RoHS   Source:  Datasheet
+Change component parameters: Designator = "K1" ("K1"); Footprint = "0476618"; UniqueID = "\TZZQXHUC" ("\TZZQXHUC")
+Change component parameters (AddParameter): Name = "DeviceName"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "DeviceSetName"; Value = "R53G-112DF-1-S"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "GateName_1"; Value = "G$1"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Height"; Value = "20.3mm"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "LibraryName"; Value = "R53G-112DF-1-S"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Name"; Value = "WRG(Wangrong)"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer_Part_Number"; Value = "R53G-112DF-1-S"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser_Part_Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Mouser_Price-Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "R53G112DF1S"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS_Part_Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "RS_Price-Stock"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SymbolName_1"; Value = "R53G-112DF-1-S"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=C1-1
+Added Pin To Net: NetName=+3.3V Pin=C4-2
+Added Pin To Net: NetName=+3.3V Pin=C5-2
+Added Pin To Net: NetName=+3.3V Pin=J1-3
+Added Pin To Net: NetName=+3.3V Pin=R1-2
+Added Pin To Net: NetName=+3.3V Pin=R2-2
+Added Pin To Net: NetName=+3.3V Pin=R3-2
+Added Pin To Net: NetName=+3.3V Pin=R4-2
+Added Pin To Net: NetName=+3.3V Pin=U1-8
+Added Pin To Net: NetName=+3.3V Pin=U3-2
+Added Pin To Net: NetName=+3.3V Pin=U3-4
+Added Net: Name=+3.3V
+Added Pin To Net: NetName=+5V Pin=C2-2
+Added Pin To Net: NetName=+5V Pin=C3-2
+Added Pin To Net: NetName=+5V Pin=D1-2
+Added Pin To Net: NetName=+5V Pin=K1-4
+Added Pin To Net: NetName=+5V Pin=U2-4
+Added Pin To Net: NetName=+5V Pin=U3-3
+Added Net: Name=+5V
+Added Pin To Net: NetName=DTR Pin=J1-2
+Added Pin To Net: NetName=DTR Pin=R4-1
+Added Pin To Net: NetName=DTR Pin=U1-18
+Added Net: Name=DTR
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-1
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=GND Pin=Q1-2
+Added Pin To Net: NetName=GND Pin=R5-1
+Added Pin To Net: NetName=GND Pin=R7-2
+Added Pin To Net: NetName=GND Pin=U1-15
+Added Pin To Net: NetName=GND Pin=U2-3
+Added Pin To Net: NetName=GND Pin=U3-1
+Added Net: Name=GND
+Added Pin To Net: NetName=NC_2 Pin=K1-2
+Added Net: Name=NC_2
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Pin To Net: NetName=NetD1_1 Pin=K1-5
+Added Pin To Net: NetName=NetD1_1 Pin=Q1-3
+Added Net: Name=NetD1_1
+Added Pin To Net: NetName=NetQ1_1 Pin=Q1-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R6-1
+Added Pin To Net: NetName=NetQ1_1 Pin=R7-1
+Added Net: Name=NetQ1_1
+Added Pin To Net: NetName=NetR1_1 Pin=R1-1
+Added Pin To Net: NetName=NetR1_1 Pin=U1-3
+Added Net: Name=NetR1_1
+Added Pin To Net: NetName=NetR3_1 Pin=R3-1
+Added Pin To Net: NetName=NetR3_1 Pin=U1-17
+Added Net: Name=NetR3_1
+Added Pin To Net: NetName=NEUTRAL Pin=JP1-2
+Added Pin To Net: NetName=NEUTRAL Pin=JP2-2
+Added Pin To Net: NetName=NEUTRAL Pin=U2-2
+Added Net: Name=NEUTRAL
+Added Pin To Net: NetName=NO_2 Pin=JP1-1
+Added Pin To Net: NetName=NO_2 Pin=K1-1
+Added Net: Name=NO_2
+Added Pin To Net: NetName=PHASE Pin=JP2-1
+Added Pin To Net: NetName=PHASE Pin=K1-3
+Added Pin To Net: NetName=PHASE Pin=U2-1
+Added Net: Name=PHASE
+Added Pin To Net: NetName=RELAY2 Pin=R6-2
+Added Pin To Net: NetName=RELAY2 Pin=U1-20
+Added Net: Name=RELAY2
+Added Pin To Net: NetName=RST Pin=J1-6
+Added Pin To Net: NetName=RST Pin=R2-1
+Added Pin To Net: NetName=RST Pin=U1-1
+Added Net: Name=RST
+Added Pin To Net: NetName=RX1 Pin=U1-7
+Added Net: Name=RX1
+Added Pin To Net: NetName=RX Pin=J1-4
+Added Pin To Net: NetName=RX Pin=U1-21
+Added Net: Name=RX
+Added Pin To Net: NetName=TX1 Pin=R5-2
+Added Pin To Net: NetName=TX1 Pin=U1-16
+Added Net: Name=TX1
+Added Pin To Net: NetName=TX Pin=J1-5
+Added Pin To Net: NetName=TX Pin=U1-22
+Added Net: Name=TX
+Added Class: Name=Water Control
